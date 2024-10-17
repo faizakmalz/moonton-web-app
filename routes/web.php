@@ -31,9 +31,11 @@ Route::prefix('prototype')->name('prototype.')->group(function () {
     route::get('/login', function () {
         return Inertia::render('Prototype/Login');
     })->name('login');
+
     route::get('/register', function () {
         return Inertia::render('Prototype/Register');
     })->name('register');
+
     route::get('/dashboard', function () {
         return Inertia::render('Prototype/Dashboard');
     })->name('dashboard');
@@ -41,6 +43,10 @@ Route::prefix('prototype')->name('prototype.')->group(function () {
     route::get('/subscription-plan', function () {
         return Inertia::render('Prototype/SubscriptionPlan');
     })->name('subscription-plan');
+
+    route::get('/movie/{slug}', function () {
+        return Inertia::render('Prototype/Movie/Show');
+    })->name('movie.show');
 });
 
 
