@@ -1,17 +1,20 @@
 import Sidebar from "./Sidebar"
 import Topbar from "./Topbar"
 
-export default function Authenticated({children}) {
+export default function Authenticated({auth, children}) {
+
+    console.log(auth, auth.user, auth.activePlan);
+
     return (
         <>
             <div className="mx-auto max-w-screen hidden lg:block">
                 {/* Sidebar */}
-                <Sidebar/>
+                <Sidebar auth={auth}/>
                 {/* Content */}
                 <div className="ml-[300px] px-[50px]">
                     <div className="py-10 flex flex-col gap-[50px]">
                         {/* TopBar */}
-                        <Topbar/>
+                        <Topbar name={auth.user.name}/>
                         <main>{children}</main>
                     </div>
                 </div>
