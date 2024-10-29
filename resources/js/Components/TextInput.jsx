@@ -16,7 +16,7 @@ TextInput.propTypes = {
     isError: PropTypes.bool,
 };
 
-export default function TextInput({ type = 'text', name, value, defaultValue, variant = 'primary', className = '', placeholder, isError, isFocused = false, ...props }) {
+export default function TextInput({ type = 'text', name, value, defaultValue, variant = 'primary', className = '', placeholder, isError, handleChange ,isFocused = false, ...props }) {
     const input = useRef();
 
     useEffect(() => {
