@@ -2,12 +2,12 @@ import { forwardRef, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 TextInput.propTypes = {
-    type: PropTypes.oneOf(['text', 'email', 'password', 'number', 'file']),
+    type: PropTypes.oneOf(['url', 'text', 'email', 'password', 'number', 'file']),
     name: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     className: PropTypes.string,
-    variant: PropTypes.oneOf(['primary', 'error', 'primary-outline']),
+    variant: PropTypes.oneOf(['primary', 'error', 'primary-outline', 'light']),
     required: PropTypes.bool,
     autoComplete: PropTypes.string,
     isFocused: PropTypes.bool,

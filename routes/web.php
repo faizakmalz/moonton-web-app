@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\MovieController;
+use App\Http\Controllers\Admin\AdminMovieController;
 use App\Http\Controllers\User\SubscriptionPlanController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -40,9 +40,14 @@ Route::middleware(['auth', 'role:user'])->prefix('dashboard')->name('user.dashbo
 
     Route::post('subscription-plan/{subscriptionPlan}/user-subscribe',[SubscriptionPlanController::class,'userSubscribe'])->name('subscriptionPlan.userSubscribe')->middleware('checkUserSubscription:false');
 
-    Route::get('profile', function () {
-        return Inertia::render(component: 'User/Dashboard/Profile');
+    Route::get('profile',  function () {
+        return Inertia::render( 'User/Dashboard/Profile');
     })->name('profile');
+});
+
+Route::middleware( ['auth', 'role:admin'])->prefix('admin')->name('admin.dashboard.')->group(function(){
+    Route::put('movie/{movie}/restore', [AdminMovieController::class,'restore'])->name('movie.restore');
+    Route::resource('movie', AdminMovieController::class);
 });
 
 Route::prefix('prototype')->name('prototype.')->group(function () {
