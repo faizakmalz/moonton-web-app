@@ -12,6 +12,10 @@
     @apply focus:bg-form-bg bg-form-bg focus:outline-alerange focus:outline-none
 }
 
+.input-light {
+    @apply focus:bg-white bg-white focus:outline-alerange focus:outline-none
+}
+
 @layer components {
     [type='text']:focus, 
     input:where(:not([type])):focus, 
